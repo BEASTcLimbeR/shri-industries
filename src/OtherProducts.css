@@ -1,0 +1,69 @@
+.other-products-section {
+  background: #fafbfc;
+  padding: 56px 0 48px 0;
+  width: 100vw;
+}
+.other-products-title {
+  color: #111;
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.01em;
+}
+.other-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 36px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.other-product-card {
+  background: linear-gradient(135deg, #0a0f1a 0%, #232b3b 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 12px 18px 12px;
+  min-width: 220px;
+  min-height: 80px;
+}
+.other-product-name {
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.other-product-btn {
+  background: linear-gradient(90deg, #0066ff 0%, #338bff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,102,255,0.12);
+  transition: background 0.2s;
+}
+.other-product-btn:hover {
+  background: linear-gradient(90deg, #338bff 0%, #0066ff 100%);
+}
+@media (max-width: 900px) {
+  .other-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .other-products-grid {
+    grid-template-columns: 1fr;
+  }
+} 

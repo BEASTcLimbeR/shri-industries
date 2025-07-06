@@ -1,0 +1,5 @@
+# Handle React Router
+/*    /index.html   200
+
+# API redirects (if needed)
+/api/*  https://your-render-backend-url.onrender.com/:splat  200 

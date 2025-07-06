@@ -1,0 +1,255 @@
+:root {
+  --bg-main: #fff;
+  --text-main: #111;
+  --card-bg: #f7f7fa;
+  --card-title: #222;
+  --button-bg: #1976ff;
+  --button-text: #fff;
+  --button-bg-hover: #005be8;
+}
+body.dark-mode {
+  --bg-main: #111;
+  --text-main: #fff;
+  --card-bg: #181c24;
+  --card-title: #fff;
+  --button-bg: #1976ff;
+  --button-text: #fff;
+  --button-bg-hover: #338bff;
+}
+body, .products-section {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+.products-section {
+  padding: 56px 0 48px 0;
+  width: 100vw;
+}
+.products-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.01em;
+  color: var(--text-main);
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 56px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.product-card {
+  background: linear-gradient(135deg, #0a2a6c 0%, #0e4b9a 100%);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 18px 28px 18px;
+  min-width: 320px;
+  min-height: 380px;
+  position: relative;
+}
+.product-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+.product-name {
+  color: #ffa500;
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-details-btn {
+  width: 90%;
+  max-width: 340px;
+  height: 54px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 12px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+  margin-top: 32px;
+  margin-bottom: 18px;
+  transition: background 0.2s;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-details-btn:hover, .product-details-btn:focus {
+  background: var(--button-bg-hover);
+  color: var(--button-text);
+}
+.product-card.pixel-perfect {
+  background: url('../public/card-bg-img.png') center/cover no-repeat;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px 32px 32px;
+  min-width: 340px;
+  max-width: 420px;
+  min-height: 480px;
+  max-height: 540px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.product-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+.product-card-header .product-card-logo {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  object-fit: contain;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-right: 6px;
+  padding: 0;
+  display: block;
+}
+.product-card-company {
+  color: #ffa500;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.product-card-title {
+  color: #fff;
+  font-size: clamp(0.95rem, 2.8vw, 1.35rem);
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 0.01em;
+}
+.product-img-container {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  flex: 1 1 auto;
+  overflow: visible;
+}
+.product-card-img {
+  max-width: 90%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  margin: 0 auto;
+  transform: scale(1.35);
+}
+.product-card-img.extra-zoom {
+  transform: scale(1.7);
+}
+.product-card-img[alt="Amla Shredding Machine"].extra-zoom {
+  transform: scale(2.1);
+}
+.product-details-btn {
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+    max-width: 700px;
+  }
+  .product-card.pixel-perfect {
+    min-width: 260px;
+    max-width: 340px;
+    height: 420px;
+    padding: 18px 10px 24px 10px;
+  }
+  .product-img-container {
+    height: 200px;
+  }
+  .product-details-btn {
+    height: 44px;
+    font-size: 1rem;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+    max-width: 98vw;
+  }
+  .product-card.pixel-perfect {
+    min-width: 90vw;
+    max-width: 98vw;
+    height: 340px;
+    padding: 10px 4vw 18px 4vw;
+  }
+  .product-img-container {
+    height: 120px;
+  }
+  .product-details-btn {
+    height: 38px;
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .products-section {
+    padding: 24px 0 18px 0;
+  }
+  .products-title {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+  .product-card.pixel-perfect {
+    min-width: 98vw;
+    max-width: 99vw;
+    height: 260px;
+    padding: 6px 2vw 10px 2vw;
+    border-radius: 18px;
+  }
+  .product-img-container {
+    height: 70px;
+  }
+  .product-details-btn {
+    height: 32px;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    border-radius: 8px;
+  }
+} 

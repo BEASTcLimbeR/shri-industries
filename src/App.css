@@ -1,3 +1,15 @@
+/* Reset and base styles for pixel-perfect implementation */
+body, html, #root, .App {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+/* Add section-specific styles as components are built */
+
 .App {
   text-align: center;
 }

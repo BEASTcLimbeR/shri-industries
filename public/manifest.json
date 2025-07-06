@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Shri Industries",
+  "name": "Shri Industries - Food Processing Machinery Manufacturer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,5 +21,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "description": "Leading manufacturer of food processing machinery since 1996. Specializing in jackfruit cutting machines, automatic chakli machines, and solar-powered food processing equipment."
 }

@@ -1,0 +1,122 @@
+.footer-section {
+  background: #111;
+  color: #fff;
+  width: 100vw;
+  padding: 0 0 0 0;
+  font-size: 1rem;
+  border-top: 2px solid #222;
+}
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 36px 6vw 18px 6vw;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 260px;
+  max-width: 340px;
+  gap: 0;
+}
+.footer-logo {
+  width: 64px;
+  height: auto;
+  margin: 0 auto 8px auto;
+  display: block;
+}
+.footer-logo-text {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 0 auto 12px auto;
+}
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.footer-brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ff9900;
+}
+.footer-brand-desc {
+  text-align: center;
+  font-size: 0.98rem;
+  color: #e0e0e0;
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+.footer-social {
+  font-size: 2.1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-social:hover {
+  color: #ff9900;
+}
+.footer-hours {
+  min-width: 220px;
+  text-align: center;
+}
+.footer-hours-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.footer-hours-closed {
+  color: #ff4d4d;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.footer-contact {
+  min-width: 220px;
+  text-align: right;
+}
+.footer-contact-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+.footer-contact-links a {
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 0.98rem;
+  margin-right: 4px;
+}
+.footer-contact-links a:hover {
+  color: #ff9900;
+}
+.footer-copyright {
+  text-align: center;
+  color: #bbb;
+  font-size: 0.98rem;
+  padding: 18px 0 12px 0;
+  border-top: 1px solid #222;
+  background: #111;
+}
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 2vw 12px 2vw;
+  }
+  .footer-contact, .footer-hours {
+    text-align: center;
+  }
+} 

@@ -1,0 +1,60 @@
+.preloader-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.light-mode .preloader-overlay {
+  background: #fff;
+}
+body.dark-mode .preloader-overlay {
+  background: #fff;
+}
+
+.preloader-lottie {
+  width: 220px; /* Default for large desktop */
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: invert(0);
+}
+
+body.light-mode .preloader-lottie {
+  filter: invert(0) brightness(1);
+}
+body.dark-mode .preloader-lottie {
+  filter: invert(0) brightness(1);
+}
+
+@media (max-width: 1400px) {
+  .preloader-lottie {
+    width: 180px; /* Large laptops */
+    height: 180px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .preloader-lottie {
+    width: 140px; /* Tablets and small laptops */
+    height: 140px;
+  }
+}
+
+@media (max-width: 700px) {
+  .preloader-lottie {
+    width: 100px; /* Large mobile devices */
+    height: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .preloader-lottie {
+    width: 60px; /* Small mobile devices */
+    height: 60px;
+  }
+} 

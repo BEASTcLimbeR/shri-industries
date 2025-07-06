@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# Shri Industries - Industrial Machinery Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based website for Shri Industries, showcasing industrial machinery and equipment.
 
-## Available Scripts
+## 🌐 Live Website
+**Frontend**: [Your Netlify URL]  
+**Backend**: [Your Railway URL]
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Dark/Light Mode**: Toggle between dark and light themes
+- **Product Showcase**: Interactive product carousel and detailed product pages
+- **Contact Form**: Integrated contact form with backend functionality
+- **Modern UI**: Built with React and enhanced with Framer Motion animations
+- **SEO Optimized**: Proper meta tags and sitemap for search engines
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- **React 19.1.0** - Modern React with hooks
+- **Framer Motion** - Smooth animations and transitions
+- **React Icons** - Beautiful icon library
+- **Lottie React** - Animated preloader and UI elements
 
-### `npm test`
+### Backend
+- **Node.js** - Server runtime
+- **Express.js** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - MongoDB object modeling
+- **Nodemailer** - Email functionality
+- **CORS** - Cross-origin resource sharing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Project Structure
 
-### `npm run build`
+```
+shri-industries/
+├── public/                 # Static assets
+│   ├── images/            # Product images and graphics
+│   ├── index.html         # Main HTML file
+│   └── manifest.json      # PWA manifest
+├── src/                   # React source code
+│   ├── components/        # Reusable React components
+│   ├── App.js            # Main App component
+│   └── index.js          # Entry point
+├── backend/              # Node.js backend
+│   ├── models/           # Database models
+│   ├── server.js         # Express server
+│   └── package.json      # Backend dependencies
+└── package.json          # Frontend dependencies
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+- MongoDB (for backend functionality)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**
+   ```bash
+   git clone <your-repository-url>
+   cd shri-industries
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   cd ..
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Set up environment variables**
+   
+   **Frontend (.env file):**
+   ```env
+   REACT_APP_API_URL=http://localhost:5000
+   ```
+   
+   **Backend (.env file):**
+   ```env
+   MONGODB_URI=mongodb://localhost:27017/shri_industries
+   EMAIL_USER=your_email@gmail.com
+   EMAIL_PASS=your_email_password
+   PORT=5000
+   NODE_ENV=development
+   CORS_ORIGIN=http://localhost:3000
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. **Start the development servers**
 
-## Learn More
+   **Frontend (React):**
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   **Backend (Node.js):**
+   ```bash
+   cd backend
+   node server.js
+   ```
+   The backend will run on [http://localhost:5000](http://localhost:5000)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 Available Scripts
 
-### Code Splitting
+### Frontend Scripts
+- `npm start` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm test` - Launches the test runner
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Backend Scripts
+- `node server.js` - Starts the Express server
 
-### Analyzing the Bundle Size
+## 🎨 Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Adding New Products
+1. Add product images to the `public/` directory
+2. Update the product data in your components
+3. Add product details and specifications
 
-### Making a Progressive Web App
+### Styling
+- CSS files are organized alongside their corresponding components
+- Use CSS variables for consistent theming
+- Responsive design is implemented using media queries
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🔧 Deployment
 
-### Advanced Configuration
+### Frontend Deployment (Netlify)
+1. Build the production version:
+   ```bash
+   npm run build
+   ```
+2. Deploy the `build/` folder to Netlify
+3. Set environment variable: `REACT_APP_API_URL=https://your-backend-url.railway.app`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Backend Deployment (Railway)
+1. Deploy the `backend/` folder to Railway
+2. Set up environment variables on Railway platform
+3. Ensure MongoDB is accessible from your server
 
-### Deployment
+## 📞 Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For any questions or issues, please contact the development team.
 
-### `npm run build` fails to minify
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is proprietary to Shri Industries.
+
+---
+
+**Built with ❤️ for Shri Industries**
