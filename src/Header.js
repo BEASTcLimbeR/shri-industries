@@ -35,6 +35,11 @@ function Header() {
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
     setMenuOpen(false); // Close menu on link click
+    if (targetId === 'home' || targetId === '#home') {
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const section = document.getElementById(targetId);
     if (section) {
       const y = section.getBoundingClientRect().top + window.scrollY;

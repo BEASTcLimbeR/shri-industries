@@ -154,3 +154,41 @@
     padding: 10px 20px;
   }
 }
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .carousel-cards {
+    gap: 24px;
+    justify-content: center;
+  }
+  .carousel-card {
+    min-width: 220px;
+    max-width: 260px;
+    height: 340px;
+    padding: 8px 8px 6px 8px;
+  }
+  .carousel-card img {
+    height: 180px;
+    max-width: 220px;
+  }
+  /* If only one card is visible, make it much wider and image larger */
+  .carousel-cards .carousel-card:only-child {
+    min-width: 80vw;
+    max-width: 90vw;
+    height: 440px;
+    margin: 0 auto;
+    padding: 16px 8px 12px 8px;
+    position: relative;
+    padding-bottom: 60px;
+  }
+  .carousel-cards .carousel-card:only-child img {
+    height: 320px;
+    max-width: 80vw;
+  }
+  .carousel-cards .carousel-card:only-child .carousel-card-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    margin-bottom: 0;
+  }
+}

@@ -26,18 +26,29 @@ const SLIDES_COUNT = 2; // Only two slides
 function ProductCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
+  const [isTablet, setIsTablet] = useState(window.innerWidth > 600 && window.innerWidth <= 900);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
   const containerRef = useRef();
 
   // Update isMobile on resize
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 700);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+      setIsTablet(window.innerWidth > 600 && window.innerWidth <= 900);
+    };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // For desktop: 2 slides (3 products per slide); for mobile: 4 slides (1 product per slide)
-  const maxIndex = isMobile ? products.length - 1 : 1;
+  // For desktop: 2 slides (3 products per slide); for tablet: 2 slides (2 products per slide); for mobile: 4 slides (1 product per slide)
+  let maxIndex;
+  if (isMobile) {
+    maxIndex = products.length - 1;
+  } else if (isTablet) {
+    maxIndex = Math.ceil(products.length / 2) - 1;
+  } else {
+    maxIndex = 1;
+  }
 
   // Slide to next
   const nextSlide = () => {
@@ -80,6 +91,13 @@ function ProductCarousel() {
   let visibleCards;
   if (isMobile) {
     visibleCards = [products[currentIndex]];
+  } else if (isTablet) {
+    // Show 2 cards per slide on tablet
+    const start = currentIndex * 2;
+    visibleCards = products.slice(start, start + 2);
+    if (visibleCards.length < 2) {
+      visibleCards = visibleCards.concat(products.slice(0, 2 - visibleCards.length));
+    }
   } else {
     if (currentIndex === 0) {
       visibleCards = products.slice(0, 3); // First 3 products
@@ -129,7 +147,7 @@ function ProductCarousel() {
         &#8594;
       </button>
       <div className="carousel-dots">
-        {(isMobile ? products : [0, 1]).map((_, i) => (
+        {(isMobile ? products : isTablet ? Array.from({length: Math.ceil(products.length / 2)}) : [0, 1]).map((_, i) => (
           <span
             key={i}
             className={`dot ${i === currentIndex ? 'active' : ''}`}
