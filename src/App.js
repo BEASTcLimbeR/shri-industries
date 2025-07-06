@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header onHomeClick={() => { setContactModalOpen(false); setSelectedProduct(''); }} />
       <HeroSection />
       <ProductCarousel />
       <BusinessInfoBar />

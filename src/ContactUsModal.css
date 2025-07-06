@@ -2,7 +2,7 @@
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(10, 20, 40, 0.85);
-  z-index: 1000;
+  z-index: 5000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,19 +23,19 @@
   position: absolute;
   top: 18px;
   right: 18px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.6rem;
   background: #222b3a;
   color: #fff;
+  z-index: 10;
+  border-radius: 50%;
   border: none;
-  border-radius: 8px;
-  font-size: 1.5rem;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  cursor: pointer;
 }
 .contact-modal-close:hover {
   background: #338bff;
@@ -181,14 +181,18 @@
     position: relative;
   }
   .contact-modal-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
     background: #222b3a;
-    z-index: 1100;
+    z-index: 2000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .contact-modal-body {
     flex-direction: column;
@@ -252,14 +256,18 @@
     position: relative;
   }
   .contact-modal-close {
-    position: absolute;
+    position: fixed;
     top: 16px;
     right: 16px;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     font-size: 1.4rem;
     background: #222b3a;
-    z-index: 1100;
+    z-index: 2000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .contact-modal-title {
     font-size: 1.3rem;

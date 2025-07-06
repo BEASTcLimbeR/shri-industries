@@ -13,7 +13,7 @@ function getInitialTheme() {
   return false; // default to light mode
 }
 
-function Header() {
+function Header({ onHomeClick }) {
   const [darkMode, setDarkMode] = useState(getInitialTheme());
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -38,6 +38,7 @@ function Header() {
     if (targetId === 'home' || targetId === '#home') {
       // Scroll to top smoothly
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (onHomeClick) onHomeClick();
       return;
     }
     const section = document.getElementById(targetId);
@@ -49,6 +50,11 @@ function Header() {
         onUpdate: (latest) => window.scrollTo(0, latest)
       });
     }
+  };
+
+  const handleHomeClick = (e) => {
+    handleSmoothScroll(e, 'home');
+    if (onHomeClick) onHomeClick();
   };
 
   return (
@@ -117,7 +123,7 @@ function Header() {
             tabIndex={-1}
           />
           <ul className="header-navlinks mobile open">
-            <li><a href="#home" onClick={e => handleSmoothScroll(e, 'home')}>Home</a></li>
+            <li><a href="#home" onClick={handleHomeClick}>Home</a></li>
             <li><a href="#products" onClick={e => handleSmoothScroll(e, 'products')}>Products and Services</a></li>
             <li><a href="#about" onClick={e => handleSmoothScroll(e, 'about')}>About us</a></li>
             <li><a href="#contact" onClick={e => handleSmoothScroll(e, 'contact')}>Contact us</a></li>
@@ -140,7 +146,7 @@ function Header() {
           />
         </div>
         <ul className="header-navlinks desktop">
-          <li><a href="#home" onClick={e => handleSmoothScroll(e, 'home')}>Home</a></li>
+          <li><a href="#home" onClick={handleHomeClick}>Home</a></li>
           <li><a href="#products" onClick={e => handleSmoothScroll(e, 'products')}>Products and Services</a></li>
           <li><a href="#about" onClick={e => handleSmoothScroll(e, 'about')}>About us</a></li>
           <li><a href="#contact" onClick={e => handleSmoothScroll(e, 'contact')}>Contact us</a></li>
