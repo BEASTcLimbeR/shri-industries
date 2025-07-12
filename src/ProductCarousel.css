@@ -7,6 +7,8 @@
   overflow: hidden;
   position: relative;
   max-width: 100%;
+  width: 100%; /* Ensure full width */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .carousel-cards {
@@ -122,10 +124,14 @@
 
 .carousel-glass-btn.prev {
   left: 12px;
+  /* Ensure button stays within container bounds */
+  max-left: calc(100% - 44px);
 }
 
 .carousel-glass-btn.next {
   right: 12px;
+  /* Ensure button stays within container bounds */
+  max-right: calc(100% - 44px);
 }
 
 .carousel-glass-btn:hover, .carousel-glass-btn:focus {
@@ -144,9 +150,13 @@
   }
   .carousel-glass-btn.prev {
     left: 4px;
+    /* Ensure button stays within container bounds on mobile */
+    max-left: calc(100% - 32px);
   }
   .carousel-glass-btn.next {
     right: 4px;
+    /* Ensure button stays within container bounds on mobile */
+    max-right: calc(100% - 32px);
   }
   /* Make product name text larger on mobile */
   .carousel-card-btn {
@@ -164,11 +174,30 @@
     min-width: 220px;
     max-width: 260px;
     height: 340px;
-    padding: 8px 8px 6px 8px;
+    padding: 12px 8px 16px 8px; /* more vertical padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ensures button is at the bottom */
+    align-items: center;
   }
   .carousel-card img {
-    height: 180px;
-    max-width: 220px;
+    height: 160px;
+    max-width: 90%;
+    width: auto;
+    margin-bottom: 18px;
+    margin-top: 8px;
+    display: block;
+    object-fit: contain;
+    transform: scale(1.18); /* Zoom in image for tablet view */
+    transition: transform 0.3s;
+  }
+  .carousel-card-btn {
+    width: 90%;
+    max-width: 200px;
+    margin: 0 auto 0 auto;
+    font-size: 1.08rem;
+    padding: 10px 0;
+    align-self: center;
   }
   /* If only one card is visible, make it much wider and image larger */
   .carousel-cards .carousel-card:only-child {

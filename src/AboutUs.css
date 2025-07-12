@@ -15,13 +15,14 @@ body.dark-mode {
 .aboutus-section {
   background: var(--about-bg);
   color: var(--about-text);
-  width: 100vw;
+  width: 100%; /* Changed from 100vw to prevent horizontal overflow */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 64px 0 48px 0;
   position: relative;
   gap: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 .aboutus-content {
   max-width: 700px;

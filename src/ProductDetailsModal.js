@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './ProductDetailsModal.css';
 
 function ProductDetailsModal({ open, onClose, product, onEnquire = () => {} }) {
-  // Lock scroll when modal is open
+  // Lock scroll and add modal-open class when modal is open
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     }
     // Cleanup in case modal is unmounted
     return () => {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     };
   }, [open]);
 

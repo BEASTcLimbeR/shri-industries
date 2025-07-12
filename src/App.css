@@ -6,12 +6,17 @@ body, html, #root, .App {
   font-family: 'Inter', Arial, sans-serif;
   background: #fff;
   color: #111;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Add section-specific styles as components are built */
 
 .App {
   text-align: center;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  position: relative;
 }
 
 .App-logo {

@@ -20,7 +20,9 @@ function App() {
   useEffect(() => {
     // Simulate loading (replace with real data/image loading if needed)
     const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleEnquire = (product = '') => {

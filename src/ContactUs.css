@@ -19,11 +19,12 @@ body.dark-mode {
 .contactus-section {
   background: var(--contact-bg);
   color: var(--contact-text);
-  width: 100vw;
+  width: 100%; /* Changed from 100vw to prevent horizontal overflow */
   padding: 64px 0 48px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 .contactus-title {
   font-size: 2.6rem;

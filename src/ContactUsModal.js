@@ -30,16 +30,16 @@ function ContactUsModal({ open, onClose, product = '' }) {
     // eslint-disable-next-line
   }, [open, product]);
 
-  // Lock scroll when modal is open
+  // Lock scroll and add modal-open class when modal is open
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     }
     // Cleanup in case modal is unmounted
     return () => {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     };
   }, [open]);
 

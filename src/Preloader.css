@@ -33,28 +33,28 @@ body.dark-mode .preloader-lottie {
 
 @media (max-width: 1400px) {
   .preloader-lottie {
-    width: 180px; /* Large laptops */
-    height: 180px;
+    width: 200px; /* Large laptops - increased from 180px */
+    height: 200px;
   }
 }
 
 @media (max-width: 1024px) {
   .preloader-lottie {
-    width: 140px; /* Tablets and small laptops */
-    height: 140px;
+    width: 180px; /* Tablets and small laptops - increased from 140px */
+    height: 180px;
   }
 }
 
 @media (max-width: 700px) {
   .preloader-lottie {
-    width: 100px; /* Large mobile devices */
-    height: 100px;
+    width: 160px; /* Large mobile devices - increased from 100px */
+    height: 160px;
   }
 }
 
 @media (max-width: 400px) {
   .preloader-lottie {
-    width: 60px; /* Small mobile devices */
-    height: 60px;
+    width: 140px; /* Small mobile devices - increased from 60px */
+    height: 140px;
   }
 } 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './ProductsGrid.css';
 import ProductDetailsModal from './ProductDetailsModal';
@@ -56,16 +56,35 @@ const products = [
 
 function ProductsGrid({ onEnquire = () => {} }) {
   const [modalIdx, setModalIdx] = useState(null);
+  const [highlighted, setHighlighted] = useState('');
+  const highlightTimeout = useRef();
+
+  // Expose a global function for the carousel to call
+  window.scrollToProductCard = (productName) => {
+    const id = `product-${productName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+    const productCard = document.getElementById(id);
+    if (productCard) {
+      productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setHighlighted(id);
+      clearTimeout(highlightTimeout.current);
+      highlightTimeout.current = setTimeout(() => setHighlighted(''), 1500);
+    }
+  };
 
   return (
     <section className="products-section" id="products">
       <h2 className="products-title">Our Products</h2>
       <div className="products-grid">
-        {products.map((product, idx) => (
+        {products.map((product, idx) => {
+          const id = `product-${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+          const isHighlighted = highlighted === id;
+          return (
           <motion.div
             className="product-card pixel-perfect"
+              id={id}
             key={product.name}
             whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(255,153,0,0.25)' }}
+              animate={isHighlighted ? { scale: 1.04, boxShadow: '0 8px 32px rgba(255,153,0,0.25)' } : { scale: 1, boxShadow: '0 4px 24px rgba(0,0,0,0.13)' }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
             {/* Card Header: Logo and Company Name */}
@@ -93,7 +112,8 @@ function ProductsGrid({ onEnquire = () => {} }) {
               View Details
             </motion.button>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
       <ProductDetailsModal
         open={modalIdx !== null}

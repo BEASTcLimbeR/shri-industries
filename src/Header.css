@@ -31,7 +31,7 @@ body.dark-mode .hamburger-bar {
 
 /* Navbar Container */
 .header-navbar {
-  width: 100vw;
+  width: 100%; /* Changed from 100vw to prevent horizontal overflow */
   background: var(--header-bg);
   color: var(--header-text);
   display: flex;
@@ -44,6 +44,7 @@ body.dark-mode .hamburger-bar {
   position: sticky;
   top: 0;
   z-index: 1100;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Logo Section */
@@ -504,4 +505,15 @@ body.light-mode .header-navlinks li a:hover {
   background: rgba(0,0,0,0.35);
   z-index: 1000;
   transition: background 0.2s;
+}
+
+body.modal-open .header-navbar {
+  display: none !important;
+}
+
+@media (max-width: 900px) and (min-width: 601px) {
+  .header-title-img {
+    height: 40px;
+    margin-left: 6px;
+  }
 }

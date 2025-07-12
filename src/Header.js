@@ -80,7 +80,6 @@ function Header({ onHomeClick }) {
             src={process.env.PUBLIC_URL + '/company-logo-svg.svg'}
             alt="Shri Industry Text Logo"
             className="header-title-img"
-            style={{ height: '40px', width: 'auto', marginLeft: '8px' }}
           />
         </div>
         <div className="header-darkmode-toggle" onClick={toggleTheme}>

@@ -107,11 +107,10 @@ function ProductCarousel() {
     }
   }
 
-  // Scroll to 'Our Products' section
-  const handleImageClick = () => {
-    const productsSection = document.getElementById('products');
-    if (productsSection) {
-      productsSection.scrollIntoView({ behavior: 'smooth' });
+  // Scroll to the specific product card in the grid
+  const handleImageClick = (productName) => {
+    if (window.scrollToProductCard) {
+      window.scrollToProductCard(productName);
     }
   };
 
@@ -133,7 +132,7 @@ function ProductCarousel() {
       <div className="carousel-cards">
         {visibleCards.map((product) => (
           <div className="carousel-card" key={product.name}>
-            <img src={product.img} alt={product.name} onClick={handleImageClick} style={{ cursor: 'pointer' }} />
+            <img src={product.img} alt={product.name} onClick={() => handleImageClick(product.name)} style={{ cursor: 'pointer' }} />
             <button className="carousel-card-btn">{product.name}</button>
           </div>
         ))}

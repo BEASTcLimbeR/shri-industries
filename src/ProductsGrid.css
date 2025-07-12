@@ -22,7 +22,8 @@ body, .products-section {
 }
 .products-section {
   padding: 56px 0 48px 0;
-  width: 100vw;
+  width: 100%; /* Changed from 100vw to prevent horizontal overflow */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 .products-title {
   font-size: 2.3rem;
@@ -183,6 +184,54 @@ body, .products-section {
   margin-top: 32px;
   margin-bottom: 0;
 }
+.product-card-highlight {
+  box-shadow: 0 8px 32px rgba(255,153,0,0.25);
+  transform: scale(1.04);
+  transition: box-shadow 0.3s, transform 0.3s;
+  z-index: 2;
+}
+
+html, body, #root, .App {
+  scrollbar-width: thin;
+  scrollbar-color: #ff9900 #181c24;
+  cursor: auto;
+}
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar,
+.App::-webkit-scrollbar {
+  width: 12px;
+  background: #181c24;
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+#root::-webkit-scrollbar-thumb,
+.App::-webkit-scrollbar-thumb {
+  background: #ff9900;
+  border-radius: 8px;
+}
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+#root::-webkit-scrollbar-thumb:hover,
+.App::-webkit-scrollbar-thumb:hover {
+  background: #ffa500;
+}
+
+/* Light mode */
+body.light-mode::-webkit-scrollbar,
+html.light-mode::-webkit-scrollbar,
+#root.light-mode::-webkit-scrollbar,
+.App.light-mode::-webkit-scrollbar {
+  background: #f7f7fa;
+}
+body.light-mode,
+html.light-mode,
+#root.light-mode,
+.App.light-mode {
+  scrollbar-color: #ff9900 #f7f7fa;
+}
 
 @media (max-width: 1200px) {
   .products-grid {
@@ -209,8 +258,10 @@ body, .products-section {
 @media (max-width: 800px) {
   .products-grid {
     grid-template-columns: 1fr;
-    gap: 24px 0;
+    gap: 24px 12px;
     max-width: 98vw;
+    padding-left: 12px;
+    padding-right: 12px;
   }
   .product-card.pixel-perfect {
     min-width: 90vw;
@@ -225,6 +276,18 @@ body, .products-section {
     height: 38px;
     font-size: 0.95rem;
     margin-top: 10px;
+  }
+  .product-card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0.01em;
+  }
+  .products-grid {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
@@ -251,5 +314,24 @@ body, .products-section {
     font-size: 0.85rem;
     margin-top: 6px;
     border-radius: 8px;
+  }
+  .product-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0.01em;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .product-card-company {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .product-card-title {
+    font-size: 1.1rem;
+    text-align: center;
   }
 } 

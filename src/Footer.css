@@ -1,10 +1,11 @@
 .footer-section {
   background: #111;
   color: #fff;
-  width: 100vw;
+  width: 100%; /* Changed from 100vw to prevent horizontal overflow */
   padding: 0 0 0 0;
   font-size: 1rem;
   border-top: 2px solid #222;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 .footer-main {
   display: flex;
@@ -118,5 +119,19 @@
   }
   .footer-contact, .footer-hours {
     text-align: center;
+  }
+}
+@media (min-width: 900px) and (max-width: 1200px) {
+  .footer-brand,
+  .footer-contact,
+  .footer-hours {
+    min-width: 160px;
+    max-width: 320px;
+    flex: 1 1 0;
+    word-break: break-word;
+  }
+  .footer-main {
+    gap: 12px;
+    padding: 24px 1vw 12px 1vw;
   }
 } 
