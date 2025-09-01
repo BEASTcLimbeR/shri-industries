@@ -1,0 +1,23 @@
+# Security Policy for Shri Industries
+# This file provides security contact information
+
+# Primary security contact
+Contact: mailto:security@amlamachines.com
+
+# Security policy URL
+Policy: https://www.amlamachines.com/security-policy
+
+# Encryption key (if you have one)
+Encryption: https://www.amlamachines.com/pgp-key.txt
+
+# Preferred languages for security reports
+Preferred-Languages: en
+
+# Can you report security issues?
+Canonical: https://www.amlamachines.com/.well-known/security.txt
+
+# Expiration date (1 year from now)
+Expires: 2025-01-01T00:00:00.000Z
+
+# Acknowledgments
+Acknowledgments: https://www.amlamachines.com/security-hall-of-fame

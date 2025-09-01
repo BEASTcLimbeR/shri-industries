@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+// Force Update Sitemap - Vercel Deployment Trigger
+// This file will force Vercel to redeploy with the updated sitemap
+
+console.log('Sitemap Update Trigger - ' + new Date().toISOString());
+
+// The corrected sitemap content
+const correctedSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
@@ -74,4 +80,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset> 
+</urlset>`;
+
+// Export the corrected sitemap
+module.exports = {
+  correctedSitemap,
+  timestamp: new Date().toISOString(),
+  message: 'This file triggers a Vercel deployment with the corrected sitemap'
+};

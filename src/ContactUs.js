@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContactUs.css';
 import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
-
+ 
 function ContactUs({ onEnquire = () => {} }) {
   return (
     <section className="contactus-section" id="contact">

@@ -1,18 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import './ProductDetailsModal.css';
 
 function ProductDetailsModal({ open, onClose, product, onEnquire = () => {} }) {
-  // Lock scroll and add modal-open class when modal is open
+  const modalRef = useRef();
+
   useEffect(() => {
-    if (open) {
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.classList.remove('modal-open');
+    if (open && modalRef.current) {
+      disableBodyScroll(modalRef.current, { allowTouchMove: el => el === modalRef.current });
+      document.body.classList.add('scroll-locked');
+      document.getElementById('root')?.classList.add('scroll-locked');
+      document.querySelector('.App')?.classList.add('scroll-locked');
+    } else if (modalRef.current) {
+      enableBodyScroll(modalRef.current);
+      document.body.classList.remove('scroll-locked');
+      document.getElementById('root')?.classList.remove('scroll-locked');
+      document.querySelector('.App')?.classList.remove('scroll-locked');
     }
-    // Cleanup in case modal is unmounted
     return () => {
-      document.body.classList.remove('modal-open');
+      clearAllBodyScrollLocks();
+      document.body.classList.remove('scroll-locked');
+      document.getElementById('root')?.classList.remove('scroll-locked');
+      document.querySelector('.App')?.classList.remove('scroll-locked');
     };
   }, [open]);
 
@@ -30,6 +40,7 @@ function ProductDetailsModal({ open, onClose, product, onEnquire = () => {} }) {
         <div className="modal-overlay">
           <motion.div
             className="modal-content pixel-perfect-modal"
+            ref={modalRef}
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.85, opacity: 0 }}

@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Corrected Sitemap Content</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .sitemap { background: #f5f5f5; padding: 20px; border-radius: 5px; }
+        .copy-btn { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer; }
+        .copy-btn:hover { background: #005a87; }
+    </style>
+</head>
+<body>
+    <h1>Corrected Sitemap Content</h1>
+    <p>Copy this content and replace your current sitemap.xml file:</p>
+    
+    <button class="copy-btn" onclick="copySitemap()">Copy Sitemap Content</button>
+    
+    <div class="sitemap" id="sitemap-content">
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
@@ -74,4 +92,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset> 
+</urlset>
+    </div>
+    
+    <script>
+        function copySitemap() {
+            const content = document.getElementById('sitemap-content').textContent;
+            navigator.clipboard.writeText(content).then(function() {
+                alert('Sitemap content copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>

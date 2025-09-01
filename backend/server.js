@@ -64,5 +64,23 @@ app.post('/send-enquiry', async (req, res) => {
   }
 });
 
+// API endpoint to get all enquiries
+app.get('/api/enquiries', async (req, res) => {
+  try {
+    const enquiries = await Enquiry.find().sort({ createdAt: -1 });
+    res.json(enquiries);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Example: API endpoint for email stats
+app.get('/api/email-stats', async (req, res) => {
+  // Replace with your logic to get real stats
+  const totalEmailsSent = 12361;
+  const percentChange = 14;
+  res.json({ totalEmailsSent, percentChange });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 

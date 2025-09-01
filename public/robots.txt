@@ -1,9 +1,24 @@
-# https://www.robotstxt.org/robotstxt.html
+# Robots.txt for Shri Industries
+# This file tells search engines which pages they can crawl
+
+# Allow all search engines to crawl the site
 User-agent: *
+
+# Allow crawling of all pages
 Allow: /
 
-# Sitemap location (update with your actual domain)
-Sitemap: https://shriindustries.com/sitemap.xml
+# Sitemap location
+Sitemap: https://www.amlamachines.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
+# Disallow crawling of admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow crawling of important directories
+Allow: /products/
+Allow: /about/
+Allow: /contact/
+
+# Crawl delay (optional - tells search engines to wait between requests)
 Crawl-delay: 1

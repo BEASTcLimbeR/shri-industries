@@ -17,17 +17,16 @@ html, body {
   overflow-x: hidden;
 }
 
-body.modal-open {
+/*body.modal-open {
   overflow: hidden !important;
   touch-action: none;
 }
-
 body.modal-open, body.modal-open #root, body.modal-open .App {
   overflow: hidden !important;
   touch-action: none;
   max-height: 100vh;
   height: 100vh;
-}
+}*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -56,4 +55,18 @@ body.light-mode::-webkit-scrollbar {
 }
 body.light-mode {
   scrollbar-color: #ff9900 #f7f7fa;
+}
+
+body.scroll-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+body.scroll-locked,
+#root.scroll-locked,
+.App.scroll-locked {
+  overflow: hidden !important;
+  touch-action: none;
+  height: 100vh !important;
+  max-height: 100vh !important;
 }

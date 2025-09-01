@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ContactUsModal.css';
 import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
 import { FaIndustry } from 'react-icons/fa';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // API endpoint - will use environment variable in production
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
@@ -18,6 +19,7 @@ function ContactUsModal({ open, onClose, product = '' }) {
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const modalRef = useRef();
 
   // Autofill product field if product prop is provided and modal is opening
   useEffect(() => {
@@ -30,16 +32,24 @@ function ContactUsModal({ open, onClose, product = '' }) {
     // eslint-disable-next-line
   }, [open, product]);
 
-  // Lock scroll and add modal-open class when modal is open
+  // Safe scroll lock for modal
   useEffect(() => {
-    if (open) {
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.classList.remove('modal-open');
+    if (open && modalRef.current) {
+      disableBodyScroll(modalRef.current, { allowTouchMove: el => el === modalRef.current });
+      document.body.classList.add('scroll-locked');
+      document.getElementById('root')?.classList.add('scroll-locked');
+      document.querySelector('.App')?.classList.add('scroll-locked');
+    } else if (modalRef.current) {
+      enableBodyScroll(modalRef.current);
+      document.body.classList.remove('scroll-locked');
+      document.getElementById('root')?.classList.remove('scroll-locked');
+      document.querySelector('.App')?.classList.remove('scroll-locked');
     }
-    // Cleanup in case modal is unmounted
     return () => {
-      document.body.classList.remove('modal-open');
+      clearAllBodyScrollLocks();
+      document.body.classList.remove('scroll-locked');
+      document.getElementById('root')?.classList.remove('scroll-locked');
+      document.querySelector('.App')?.classList.remove('scroll-locked');
     };
   }, [open]);
 
@@ -79,7 +89,7 @@ function ContactUsModal({ open, onClose, product = '' }) {
 
   return (
     <div className="contact-modal-overlay">
-      <div className="contact-modal-content">
+      <div className="contact-modal-content" ref={modalRef}>
         <button className="contact-modal-close" onClick={onClose} aria-label="Close">✕</button>
         <div className="contact-modal-body">
           <div className="contact-modal-left">

@@ -18,6 +18,9 @@
   color: #fff;
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .modal-close {
   position: absolute;
