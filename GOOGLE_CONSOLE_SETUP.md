@@ -43,7 +43,7 @@ MEASUREMENT_ID: 'G-XXXXXXXXXX'
 ### 2.1 Add Your Property
 1. Go to [Google Search Console](https://search.google.com/search-console)
 2. Click "Add property"
-3. Enter your website URL: `https://shriindustries.com`
+3. Enter your website URL: `https://www.amlamachines.com`
 4. Choose "HTML tag" verification method
 
 ### 2.2 Get Verification Code

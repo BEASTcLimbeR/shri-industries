@@ -9,11 +9,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log('MONGO_URI:', process.env.MONGO_URI);
+console.log('MONGO_URI:', process.env.MONGODB_URI);
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('MongoDB connected!'))
-.catch(err => console.error('MongoDB connection error:', err));
+.catch(err => {
+  console.error('MongoDB connection error:', err);
+  console.log('Server will start but MongoDB features will not work until MongoDB is running.');
+});
 
 app.post('/send-enquiry', async (req, res) => {
   const { productName, name, email, message } = req.body;
@@ -81,6 +84,7 @@ app.get('/api/email-stats', async (req, res) => {
   const percentChange = 14;
   res.json({ totalEmailsSent, percentChange });
 });
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
