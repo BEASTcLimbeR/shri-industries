@@ -21,18 +21,18 @@ mongoose.connect(process.env.MONGODB_URI)
 app.post('/send-enquiry', async (req, res) => {
   const { productName, name, email, message } = req.body;
 
-  // Configure transporter (replace with your real credentials)
+  // Configure transporter using environment variables
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'Shriindustryich@gmail.com', // your email
-      pass: 'nzuemkbytjehfach' // your app password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
   let mailOptions = {
-    from: 'Shriindustryich@gmail.com',
-    to: 'Shriindustryich@gmail.com',
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     replyTo: email,
     subject: `Enquiry for ${productName}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
@@ -40,7 +40,7 @@ app.post('/send-enquiry', async (req, res) => {
 
   // Thank you email to the user
   let thankYouMailOptions = {
-    from: 'Shriindustryich@gmail.com',
+    from: process.env.EMAIL_USER,
     to: email,
     subject: 'Thank You for Your Enquiry – Shri Industries',
     text: `Dear ${name},\n\nThank you for reaching out to Shri Industries!\n\nWe've received your enquiry and truly appreciate your interest in our products. We will get in touch with you shortly with the details you requested.\n\nIf you have any additional questions or need urgent assistance, feel free to contact us at +91 9322663649 or reply to this email.\n\nWe look forward to helping you find the perfect solution for your needs.\n\nWarm regards,\nShri Industries\n📞+91 9322663649 | ✉️ shri_industry@yahoo.com | 📍17/141 Gurukripa, Vivekanand Colony Ichalkaranji Pin code: 416115`
