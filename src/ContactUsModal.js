@@ -78,7 +78,36 @@ function ContactUsModal({ open, onClose, product = '' }) {
         return;
       }
 
-      // Create email content
+      // Try to send via backend first
+      try {
+        const response = await fetch('http://localhost:5000/send-enquiry', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            product: form.product,
+            city: form.city,
+            message: form.message
+          })
+        });
+
+        if (response.ok) {
+          await response.json();
+          setSuccessMsg('Thank you! Your enquiry has been received. We will get back to you soon via email or phone.');
+          setForm({ name: '', email: '', phone: '', product: '', city: '', message: '' });
+          setLoading(false);
+          return;
+        }
+      } catch (backendError) {
+        console.log('Backend not available, using fallback method');
+      }
+
+      // Fallback: Create mailto link if backend is not available
       const emailSubject = `New Enquiry from ${form.name} - ${form.product || 'General Enquiry'}`;
       const emailBody = `
 Name: ${form.name}

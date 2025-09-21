@@ -171,7 +171,7 @@ Security Information:
       from: process.env.EMAIL_USER,
       to: email,
       subject: '🔒 Thank You for Your Secure Enquiry – Shri Industries',
-      text: `Dear ${name},\n\nThank you for reaching out to Shri Industries!\n\nWe've received your enquiry and truly appreciate your interest in our products. We will get in touch with you shortly with the details you requested.\n\nIf you have any additional questions or need urgent assistance, feel free to contact us at +91 9322663649 or reply to this email.\n\nWe look forward to helping you find the perfect solution for your needs.\n\nWarm regards,\nShri Industries\n📞+91 9322663649 | ✉️ shri_industry@yahoo.com | 📍17/141 Gurukripa, Vivekanand Colony Ichalkaranji Pin code: 416115`,
+      text: `Dear ${name},\n\nThank you for reaching out to Shri Industries!\n\nWe've received your enquiry and truly appreciate your interest in our products. We will get in touch with you shortly with the details you requested.\n\nIf you have any additional questions or need urgent assistance, feel free to contact us at +91 9322663649 or reply to this email.\n\nWe look forward to helping you find the perfect solution for your needs.\n\nWarm regards,\nShri Industries\n📞+91 9322663649 | ✉️ shri.industryich@gmail.com | 📍17/141 Gurukripa, Vivekanand Colony Ichalkaranji Pin code: 416115`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1976ed;">🔒 Thank You for Your Enquiry!</h2>
@@ -183,7 +183,7 @@ Security Information:
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #333; margin-top: 0;">Contact Information</h3>
             <p>📞 <strong>Phone:</strong> +91 9322663649</p>
-            <p>✉️ <strong>Email:</strong> shri_industry@yahoo.com</p>
+            <p>✉️ <strong>Email:</strong> shri.industryich@gmail.com</p>
             <p>📍 <strong>Address:</strong> 17/141 Gurukripa, Vivekanand Colony<br>Ichalkaranji Pin code: 416115</p>
           </div>
           <p style="color: #666; font-size: 12px; margin-top: 30px;">
