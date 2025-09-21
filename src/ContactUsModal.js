@@ -95,7 +95,7 @@ This enquiry was sent from the Shri Industries website contact form.
       `.trim();
 
       // Create mailto link for immediate email sending
-      const mailtoLink = `mailto:shri_industry@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = `mailto:shri.industryich@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
       
       // Open email client
       window.open(mailtoLink, '_blank');
@@ -106,7 +106,7 @@ This enquiry was sent from the Shri Industries website contact form.
       
     } catch (err) {
       console.error('❌ Enquiry submission error:', err);
-      setErrorMsg('Error processing enquiry. Please contact us directly at shri_industry@yahoo.com or call +91 9322663649.');
+      setErrorMsg('Error processing enquiry. Please contact us directly at shri.industryich@gmail.com or call +91 9322663649.');
     }
     
     setLoading(false);

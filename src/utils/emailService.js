@@ -44,7 +44,7 @@ export const sendEnquiryEmailJS = async (formData, emailjsConfig) => {
       product: formData.product || 'General enquiry',
       city: formData.city || 'Not provided',
       message: formData.message,
-      to_email: 'shri_industry@yahoo.com'
+        to_email: 'shri.industryich@gmail.com'
     };
 
     emailjs.init(emailjsConfig.publicKey);
