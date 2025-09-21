@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Test - Shri Industries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .favicon-test {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .favicon-test img {
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        h1 {
+            color: #1976ed;
+            text-align: center;
+        }
+        .instructions {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Favicon Test - Shri Industries</h1>
+        
+        <div class="instructions">
+            <strong>Instructions:</strong> Check if the Shri Industries logo appears in the browser tab above. 
+            If you see the React logo instead, try refreshing the page or clearing your browser cache.
+        </div>
+
+        <h2>Favicon Files Test</h2>
+        
+        <div class="favicon-test">
+            <img src="/favicon.svg" alt="SVG Favicon" onerror="this.style.display='none'">
+            <div>
+                <strong>SVG Favicon:</strong> <span id="svg-status">Loading...</span>
+            </div>
+        </div>
+
+        <div class="favicon-test">
+            <img src="/logo192.png" alt="PNG Favicon" onerror="this.style.display='none'">
+            <div>
+                <strong>PNG Favicon (192x192):</strong> <span id="png-status">Loading...</span>
+            </div>
+        </div>
+
+        <div class="favicon-test">
+            <img src="/logo512.png" alt="PNG Favicon Large" onerror="this.style.display='none'">
+            <div>
+                <strong>PNG Favicon (512x512):</strong> <span id="large-png-status">Loading...</span>
+            </div>
+        </div>
+
+        <div class="status success">
+            <strong>✅ Success!</strong> If you can see the Shri Industries logo in the browser tab, the favicon is working correctly.
+        </div>
+
+        <div class="status info">
+            <strong>ℹ️ Note:</strong> Modern browsers prefer SVG favicons for crisp display at any size. 
+            The PNG fallbacks ensure compatibility with older browsers.
+        </div>
+
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li><strong>Still seeing React logo?</strong> Try hard refresh (Ctrl+F5 or Cmd+Shift+R)</li>
+            <li><strong>Clear browser cache</strong> and reload the page</li>
+            <li><strong>Check browser developer tools</strong> for any 404 errors on favicon files</li>
+            <li><strong>Try incognito/private mode</strong> to bypass cached favicons</li>
+        </ul>
+    </div>
+
+    <script>
+        // Test if favicon files are loading
+        function testFavicon(url, elementId) {
+            const img = new Image();
+            img.onload = function() {
+                document.getElementById(elementId).innerHTML = '✅ Loaded successfully';
+                document.getElementById(elementId).style.color = 'green';
+            };
+            img.onerror = function() {
+                document.getElementById(elementId).innerHTML = '❌ Failed to load';
+                document.getElementById(elementId).style.color = 'red';
+            };
+            img.src = url;
+        }
+
+        // Test all favicon formats
+        testFavicon('/favicon.svg', 'svg-status');
+        testFavicon('/logo192.png', 'png-status');
+        testFavicon('/logo512.png', 'large-png-status');
+    </script>
+</body>
+</html>

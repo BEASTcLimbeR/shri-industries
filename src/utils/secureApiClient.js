@@ -180,6 +180,10 @@ class SecureApiClient {
         console.error('❌ Secure POST request failed:', error);
         throw error;
       }
+    } catch (error) {
+      console.error('❌ Secure POST request failed:', error);
+      throw error;
+    }
   }
 
   /**
