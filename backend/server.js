@@ -112,7 +112,7 @@ app.post('/send-enquiry', async (req, res) => {
     }
 
     // Configure transporter using environment variables
-    let transporter = nodemailer.createTransporter({
+    let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
