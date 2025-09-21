@@ -78,10 +78,29 @@ function ContactUsModal({ open, onClose, product = '' }) {
         return;
       }
 
-      // For now, simulate a successful submission
-      // In production, you would integrate with a real email service
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      // Create email content
+      const emailSubject = `New Enquiry from ${form.name} - ${form.product || 'General Enquiry'}`;
+      const emailBody = `
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone || 'Not provided'}
+Product: ${form.product || 'General enquiry'}
+City: ${form.city || 'Not provided'}
 
+Message:
+${form.message}
+
+---
+This enquiry was sent from the Shri Industries website contact form.
+      `.trim();
+
+      // Create mailto link for immediate email sending
+      const mailtoLink = `mailto:shri_industry@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      
+      // Open email client
+      window.open(mailtoLink, '_blank');
+      
+      // Show success message
       setSuccessMsg('Thank you! Your enquiry has been received. We will get back to you soon via email or phone.');
       setForm({ name: '', email: '', phone: '', product: '', city: '', message: '' });
       
