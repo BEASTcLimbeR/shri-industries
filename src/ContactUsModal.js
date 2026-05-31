@@ -32,7 +32,9 @@ function ContactUsModal({ open, onClose, product = '' }) {
   // Safe scroll lock for modal
   useEffect(() => {
     if (open && modalRef.current) {
-      disableBodyScroll(modalRef.current, { allowTouchMove: el => el === modalRef.current });
+      disableBodyScroll(modalRef.current, {
+        allowTouchMove: (el) => modalRef.current?.contains(el) ?? false,
+      });
       document.body.classList.add('scroll-locked');
       document.getElementById('root')?.classList.add('scroll-locked');
       document.querySelector('.App')?.classList.add('scroll-locked');
