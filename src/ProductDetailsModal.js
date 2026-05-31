@@ -26,14 +26,6 @@ function ProductDetailsModal({ open, onClose, product, onEnquire = () => {} }) {
     };
   }, [open]);
 
-  function getProductSVG(name) {
-    if (name === 'Areca Nut de-husking Machine') return process.env.PUBLIC_URL + '/areca-nut-de-husking-machine-svg.svg';
-    if (name === 'Jackfruit chips cutting Machine') return process.env.PUBLIC_URL + '/jackfruit-chips-cutting-machine-svg.svg';
-    if (name === 'Amla Shredding Machine') return process.env.PUBLIC_URL + '/amla-shredding-machine-svg.svg';
-    if (name === 'Commercial Mini Chakli Machine') return process.env.PUBLIC_URL + '/commercial-mini-chakli-machine-svg.svg';
-    return '';
-  }
-
   return (
     <AnimatePresence>
       {open && product && (

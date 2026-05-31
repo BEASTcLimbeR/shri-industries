@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './ProductCarousel.css';
 
 const products = [
@@ -20,8 +19,6 @@ const products = [
     img: '/commercial-mini-chakli-machine-photo.png',
   },
 ];
-
-const SLIDES_COUNT = 2; // Only two slides
 
 function ProductCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,25 +48,26 @@ function ProductCarousel() {
   }
 
   // Slide to next
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
-  };
+  }, [maxIndex]);
 
   // Slide to previous
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex <= 0 ? maxIndex : prevIndex - 1));
-  };
+  }, [maxIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isHovered) nextSlide();
     }, 3000);
     return () => clearInterval(interval);
-  }, [isHovered, maxIndex, isMobile]);
+  }, [isHovered, nextSlide]);
 
   // Touch/Mouse drag support
   useEffect(() => {
     const container = containerRef.current;
+    if (!container) return undefined;
     let startX = 0;
     const handleTouchStart = (e) => {
       startX = e.touches[0].clientX;
@@ -85,7 +83,7 @@ function ProductCarousel() {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [maxIndex, isMobile]);
+  }, [nextSlide, prevSlide]);
 
   // Get the visible cards for each slide
   let visibleCards;
